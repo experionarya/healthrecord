@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    	<title>Login</title>
+      <link rel="stylesheet" href="style/font-awesome/css/font-awesome.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    	<link rel="stylesheet" type="text/css" href="style/login.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script type="text/javascript" src="script/2.5.3-crypto-md5.js"></script>
+    	<script type="text/javascript" src="script/login.js"></script>
+
+</head>
+<body>
+   
+   <div id="div1">Welcome....</div>
+
+   <div id="div2">
+
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <input type="text" placeholder="username" id="username"/><br><br>
+
+      <i class="fa fa-lock" aria-hidden="true"></i>
+      <input type="password" placeholder="password" id="password"/><br><br>
+      <button id="forgot_password" onclick="validate_forgot_password();">Forgot Password?</button><br><br>
+      <button id="login" onclick="validate();"><strong>login</strong></button>
+
+      <label>
+          <input type="checkbox" value="remember-me" id="remember_me">Remember me
+      </label>
+ </div>
+ </body>
+</html>

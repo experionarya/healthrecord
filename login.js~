@@ -1,0 +1,221 @@
+
+
+var express = require('express');
+var bodyParser = require('body-parser');
+var mysql = require('mysql');
+var cors = require('cors');
+var apiRouter=express.Router();
+var conn=mysql.createConnection({host:"localhost",user:"root",password:"admin",database:"health_record"});
+var app = express();
+app.use(cors());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+
+
+apiRouter.route('/').post(function (req, res) {
+	var u_name=req.body.username;
+	var pass=req.body.password;
+	console.log(u_name,pass);
+	console.log(req.body);
+	if(u_name==""||pass==""||u_name.length>20||pass.length>10){
+		console.log("error");
+	
+		return false;
+		var js={"status":"403","message":"Invalid entry"};
+		res.send(js);
+	}
+	else {
+  	conn.query("select * from user where username='"+u_name+"'",function (err,rows){
+		//console.log(rows.length);
+	var js={"status":"","message":"","type":null};
+	if(rows.length > 0) {
+	var data=JSON.stringify(rows);
+		//console.log(data);
+	var json=JSON.parse(data);
+		
+	if(u_name==json[0].username && pass==json[0].password) {
+			//console.log("hii");
+	    js.status='200';
+		js.message="success";
+		//js.role=json[0].role;
+		if(json[0].status==true) {
+			js.type="admin";
+		}
+		else {
+			js.type="user";
+		}
+		res.send(js);
+	}
+	
+	else {
+			js.status='403';
+		    js.message="failed";
+		    js.role=json[0].role;
+		    res.send(js);
+		}
+    }
+       
+    else {
+        	js.status='403';
+		    js.message="failed";
+		    res.send(js);
+		  }
+	});
+  }
+});
+
+apiRouter.route('/insert').post(function(req,res) {
+	var name_v=req.body.name1;
+	var age_v=req.body.age1;
+	var gender_v=req.body.gender1;
+	var location_v=req.body.location1;
+	var num_v=req.body.num1;
+	console.log(name_v);
+	console.log(age_v);
+	console.log(gender_v);
+	console.log(location_v);
+	console.log(num_v);
+	var postobj={name:name_v,age:age_v,gender:gender_v,location:location_v,contact_no:num_v};
+	//gender:gender1,
+	if(name_v==''||age_v==''||location_v==''||num_v==''){
+		console.log("error");
+        
+		var js={"status":"403","message":"Invalid entry"};
+		res.send(js);
+		return false;
+	}
+
+	else {
+		conn.query ("insert into user_details set ?",postobj,function (err, results) {
+
+				if(err){
+					console.log(err);
+				}
+				else {
+				// var js={"status":"","message":""};
+				// var data=JSON.stringify(rows);
+				// var json=JSON.parse(data);
+				// js.status='200';
+		  //       js.message="success";
+				// res.send(js);
+				console.log(results);
+			}
+		});
+	}
+});
+
+
+apiRouter.route('/remove').post(function (req,res){
+	var id=req.body.user_id;
+	var rem_name=req.body.name1;
+	var postobj={user_id:id,name:rem_name};
+	conn.query("delete from user_details where user_id=?",[id],function (err,results){
+		if(err) {
+			console.log(err);
+		}
+		else {
+			console.log(results);
+			
+		}
+	});
+});
+
+
+apiRouter.route('/addvitals').post(function (req,res) {
+	var vital_type=req.body.v_type;
+	var vital_unit=req.body.v_unit;
+	var vital_nr=req.body.v_nr;
+	var postobj={type:vital_type,unit:vital_unit,normal_range:vital_nr};
+	conn.query("insert into vitals set ?",postobj,function (err,results) {
+		if(err) {
+			console.log(err);
+		}
+		else {
+			console.log(results);
+		}
+	});
+});
+
+
+apiRouter.route('/removevitals').post(function (req,res) {
+	var vital_id=req.body.v_id;
+	var vital_type=req.body.v_type;
+	var vital_unit=req.body.v_unit;
+	var postobj={vital_id:vital_id,type:vital_type,unit:vital_unit};
+	conn.query("delete from  vitals where vital_id=?",[vital_id],function (err,results) {
+		if(err) {
+			console.log(err);
+		}
+		else {
+			console.log(results);
+		}
+	});
+});
+
+apiRouter.route('/user_details').post(function (req,res) {
+	conn.query("select * from user_details",function (err,results) {
+		var js={"status":"","message":""};
+      if(err) {
+      	console.log(err);
+      }
+      else {
+      		console.log(results);
+      		var results=JSON.stringify(results);
+			//var p_results=JSON.parse(results);
+			res.send(results);
+      }
+	});
+});
+
+
+apiRouter.route('/more').post(function (req,res){
+	var uid_v=req.body.uid;
+	console.log(uid_v);
+	conn.query("select medication.user_id,height,weight,medication.date date1,medication,dosage,allergies,reading1,reading2,results.date date2 from measurements,medication,allergy,results where measurements.user_id=medication.user_id and medication.user_id=allergy.user_id and allergy.user_id=results.user_id and measurements.user_id=?",[uid_v],function (err,results) {
+          if(err) {
+          	console.log(err);
+          }
+          else {
+          	console.log(results);
+          	var results=JSON.stringify(results);
+          	res.send(results);
+          }
+	});
+});
+
+apiRouter.route('/insert_user').post(function (req,res) {
+	var id_v=req.body.id1;
+	var address_v=req.body.address1;
+	var dob_v=req.body.dob1;
+	console.log(dob_v);
+	var bg_v=req.body.bg1;
+	var height_v=req.body.height1;
+	var weight_v=req.body.weight1;
+	//var postobj={address:address_v,dob:dob_v,blood_group:bg_v};
+	var postobj1={height:height_v,weight:weight_v,user_id:id_v};
+	conn.query('update user_details set address=?,dob=?,blood_group=? where user_details.user_id=?',[address_v,dob_v,bg_v,id_v],function (err,results) {
+		if(err) {
+			console.log(err);
+		}
+		else {
+			console.log(results);
+		}
+	});
+	conn.query('insert into measurements set ?',postobj1,function (err,results) {
+		if(err) {
+			console.log(err);
+		}
+
+		else {
+			console.log(results);
+		}
+	});
+	
+});
+
+app.use('/',apiRouter);
+var server = app.listen(8081,function(){
+	var host = server.address().address;
+	var port = server.address().port;
+	console.log("Listening at %s on port %s", host, port);
+});

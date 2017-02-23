@@ -1,0 +1,51 @@
+
+
+var httpObj=new XMLHttpRequest();
+
+httpObj.onreadystatechange=function()
+{
+    
+    if(this.readyState=='4' && this.status=='200')
+    {
+        var result=this.responseText;
+        result=JSON.parse(result);
+            
+
+            content = "<div><table id='table1'><thead><tr><th>No.</th><th>User ID</th><th>Name</th><th>Age</th><th>Gender</th><th>DOB</th><th>Blood Group</th><th>Address</th><th>Location</th><th>Contact No</th><th>ACTION</th></tr></thead><tbody>";
+            var i = 1;
+            result.forEach(function(element) {
+           
+            content += "<tr><td>" + i + "</td><td>" + element.user_id + "</td><td>" + element.name + "</td><td>" + element.age + "</td><td>" + element.gender + "</td><td>" + element.dob + "</td><td>" + element.blood_group + "</td><td>" + element.address+ "</td><td>" + element.location + "</td><td>" + element.contact_no + "</td><td><button onclick='more1("+element.user_id+");'>MORE</BUTTON></td></tr>";
+            i++;
+
+        });
+        content += "</tbody> </table> </div>";
+                  
+                document.getElementById('div1').innerHTML = content;
+    }
+}
+httpObj.open('POST','http://127.0.0.1:8081/user_details',true);
+httpObj.setRequestHeader('content-type','application/x-www-form-urlencoded');
+
+httpObj.send("");
+
+function log_out() {
+    if(confirm("Are you sure you want to logout?")) {
+       window.location="index.html";
+       return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  function back(){
+
+          window.location="admin_vital.html";
+    
+  }
+  function more1(userid){
+    localStorage.setItem("userid1",userid);
+    console.log(localStorage.getItem("userid1"));
+    window.location="admin_user_moredetails.html";
+  }

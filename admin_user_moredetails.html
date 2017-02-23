@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    	<title>MORE DETAILS</title>
+    	<link rel="stylesheet" type="text/css" href="style/admin_user_moredetails.css">
+    	<script type="text/javascript" src="script/admin_user_moredetails.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body onunload=" function set(){}">
+       <div id="div2">
+
+            <p>User Details
+              	<button id="back" onclick="back();">back</button>
+              	<button id="logout"  onclick="log_out();">logout</button>
+    	     </p>
+      </div>
+
+       <div id="div3">
+          
+        		<table id="t1">
+
+        		    <tr>
+        		    	<td>Type</td>
+        		    	<td>
+                      <select onchange="fetch_data();" id="filter">
+
+                          <option>choose..</option>
+                          <option value="result">Results</option>
+                          <option value="medication">Medication</option>
+                          <option value="measurements">Measurements</option>
+                          <option value="allergy">Allergy</option>
+                          
+                    </select>  
+
+                  </td>
+        		    </tr>
+        			
+        		</table>
+  		
+  	   </div>
+
+   <div id="div1"></div>
+
+</body>
+</html>

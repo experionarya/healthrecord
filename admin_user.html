@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+      <title>WELCOME ADMIN</title>
+      <link rel="stylesheet" type="text/css" href="style/admin_user.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script type="text/javascript" src="script/2.5.3-crypto-md5.js"></script>
+      <script type="text/javascript" src="script/admin_user.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body onunload="function set(){}">
+      <div id="head">
+
+        <p>Health Record
+        <button id="logout" onclick="log_out();">logout</button>
+         </p>
+      </div>
+
+
+      <div id="div1">
+
+        <p id="p0">Welcome Admin</p>
+        <p id="p1">User</p>
+        <a href="admin_vital.html"><p id="p2">Vitals</p></a>
+        
+      </div>
+
+      
+
+      <div id="div2">
+
+            <div id="div3">
+
+              <p id="p3">Add User</p>
+              
+              <a href="admin_userdetails.html"><p id="p4">User Details</p></a>
+
+            </div>
+
+            <div id="div4">
+
+              <table>
+
+                <tr>
+                  <td>Name</td>
+                  <td><input type="text" id="name" class="input"></td>
+                </tr>
+                
+                <tr>
+                  <td>Email ID</td>
+                  <td><input type="text" id="email" class="input"></td>
+                </tr>
+
+                <tr>
+                  <td>Age</td>
+                  <td><input type="text" id="age" class="input"></td>
+                </tr>
+
+               </table>
+               </div>
+
+               <div id="div5">
+               <table>
+
+                <tr>
+                  <td>Gender</td>
+                  <td><input type="radio" name="gender" value="male" id="m1">Male <br>
+                  <input type="radio" name="gender" value="female" id="m2">Female</td>
+                </tr>
+
+                <tr>
+                  <td>Location</td>
+                  <td><input type="text" id="location"  class="input"></td>
+                </tr>
+
+                <tr>
+                  <td>ContactNo</td>
+                  <td><input type="text" id="num"  class="input"></td>
+                </tr>
+
+              </table>
+             <button id="add" onclick="validate_adduser();">Submit</button>
+            </div>
+            
+        </div>
+  
+</body>
+</html>

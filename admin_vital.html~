@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    	<title>Admin</title>
+    	<link rel="stylesheet" type="text/css" href="style/admin_vital.css">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    	<script type="text/javascript" src="script/admin_vital.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+
+<body onunload=" function set(){}">
+      <div id="head">
+
+      	<p>Health Record
+        <button id="logout" onclick="log_out();">logout</button>
+        <button id="back" onclick="back();">back</button></p>
+
+      </div>
+
+      <div id="div1">
+
+      	<p>Welcome Admin</p>
+      	
+
+      </div>
+
+      <div id="div2">
+
+            <div id="div3">
+
+          		<p id="p3">Add Vitals</p>
+          		<p id="p4">Remove Vitals</p>
+
+          	</div>
+
+          	<div id="div4">
+
+          		<table>
+
+          			<tr>
+                  <td>Type</td>
+          				<td>:</td>
+          				<td><input type="text" id="type" class="input"></td>
+          			</tr>
+
+          			<tr>
+          				<td>Unit</td>
+          				<td>:</td>
+          				<td><input type="text" id="unit" class="input"></td>
+          			</tr>
+
+          			<tr>
+          				<td>Normal Range</td>
+          				<td>:</td>
+          				<td><input type="text" id="nr" class="input"></td>
+          			</tr>
+
+          		</table>
+
+          		<button id="add" onclick="validate_vitals();">Submit</button>
+              
+          	</div>
+
+  	<div id="div5"></div>
+
+  </div>
+  
+</body>
+</html>

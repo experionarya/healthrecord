@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>USER1</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+	<link rel="stylesheet" type="text/css" href="style/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="style/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style/user_home.css">
+  <link rel="stylesheet" type="text/css" href="style/modal.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="script/bootstrap-datepicker.min.js"></script>
+  <script type="text/javascript" src="script/2.5.3-crypto-md5.js"></script>
+	<script type="text/javascript" src="script/user_home.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	
+
+</head>
+<body  onload="password();" onunload="function set(){}">
+
+
+  <div id="div1">
+  		<p>Health Record
+  		<button id="logout" class="btn btn-primary btn-sm" onclick="log_out();">logout</button>
+      <button id="reset" class="btn btn-primary btn-sm" onclick="reset_password();">Reset Password</button> 
+  		</p>
+  </div>
+  
+  <div id="div2">
+   		<p id="p1"></p> 
+  </div>
+
+   <div id="div3">
+  		<div id="div4">
+  			<p id="p2">Personal Information</p>
+        <!-- <p id="p6">Reset Password</p> -->
+  			<a href="user_entry.html"><p id="p3">Results</p></a>
+        <a href="user_entry.html"><p id="p4">Medication</p></a>
+        <a href="user_entry.html"><p id="p4">Allergy</p></a>
+  			<a href="user_recordings.html"><p id="p5">Recordings</p></a>
+  		</div>
+  		<div id="div5">
+  			<table>
+  				
+  				<tr>
+  					<td>Name</td>
+  			
+            <td><div id="fetch_name"></div></td>
+  				</tr>
+  				<tr>
+  					<td>Address</td>
+  		
+  					<td><textarea id="address"></textarea></td>
+  				</tr>
+  				<tr>
+  					<td>DOB</td>
+  			
+  					<td><input type="text" class="datepicker" id="dob"/> <i class="fa fa-calendar" aria-hidden="true">
+              </i>
+            </td>
+  				</tr>
+        
+          <tr>
+                	
+              <td>Blood Group</td>
+          
+              <td>
+                	<select id="bg">
+                		<option value="A+ve">A+ve</option>
+                		<option value="A-ve">A-ve</option>
+                		<option value="B+ve">B+ve</option>
+                		<option value="B-ve">B-ve</option>
+                		<option value="O+ve">O+ve</option>
+                		<option value="O-ve">O-ve</option>
+                		<option value="AB+ve">AB+ve</option>
+                		<option value="AB-ve">AB-ve</option>
+                	</select>
+              </td>
+            </tr>
+
+            <!-- <tr>
+              <td>Old Password</td>
+          
+              <td><input type="password" id="p_word"></td>
+           </tr>
+            
+            <tr>
+              <td>New Password</td>
+          
+              <td><input type="password" id="p_word1"></td>
+           </tr>
+
+           <tr>
+              <td>Confirm Password</td>
+          
+              <td><input type="password" id="p_word2"></td>
+           </tr> -->
+           
+  			</table>
+    </div>
+
+    <div id="upload_photo">
+    <div id="dp">
+
+    </div>
+      <form id="uploadForm" onsubmit="return fileupload();" enctype="multipart/form-data">
+         <input type="file" id="file_input" name="userPhoto">
+         <button type="submit" id="upload">Upload</button>
+      </form>
+    </div>
+        <div id="div6">
+  			      <p>Body Measurements</p>
+  	     </div> 
+
+  	     <div id="div7">
+  	     <table>
+
+         <tr>
+            <td>Date</td>
+        
+            <td colspan="3"><input type="text" class="datepicker" id="date"/> <i class="fa fa-calendar" aria-                  hidden="true"></i></td>
+          </tr>
+
+  	     	<tr>
+  	     		<td>Height</td>
+  	     
+  	     		<td><input type="text" id="height"/></td>
+  	     		<td>Unit</td>
+  	 
+  	     		<td>
+  	     			<select id="hid">
+  	     				<option>cm</option>
+  	     				<option>feet</option>
+  	     			</select>
+  	     		</td>
+  	     	</tr>
+
+  	     	<tr>
+  	     		<td>Weight</td>
+  	     	
+  	     		<td><input type="text" id="weight"/></td>
+  	     		<td>Unit</td>
+  	     		
+  	     		<td>
+  	     			<select id="wid">
+  	     				<option>kg</option>
+  	     				<option>pounds</option>
+  	     			</select>
+  	     		</td>
+  	     	</tr>
+          <tr>
+            <td colspan="4"><button id="save" onclick="validate_user_entry();">submit</button></td>
+          </tr>
+  	     </table>
+  	     
+  	 </div>
+  		
+    </div>
+  		 
+ 	<div id="myModal" class="modal">
+       <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Old Password</p>
+          <input type="password" id="p_word">
+          <p>New Password</p>
+          <input type="password" id="p_word1">
+          <p>Confirm Password</p>
+          <input type="password" id="p_word2"><br><br>
+          <button id="psubmit" onclick="reset_password();">Submit</button>
+      </div>
+
+</div>
+
+ 	
+
+<script>
+	$('.datepicker').datepicker({
+		autoclose:true,
+		format: 'dd-mm-yyyy'
+	});
+
+</script>
+
+</body>
+</html>

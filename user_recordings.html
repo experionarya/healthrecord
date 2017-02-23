@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    	<title>USER RECORDINGS</title>
+    	<link rel="stylesheet" type="text/css" href="style/user_recordings.css">
+    	<script type="text/javascript" src="script/user_recordings.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body onunload="function set(){}">
+
+        <div id="div2">
+
+              <p>User Details
+            	<button id="back" class="btn btn-primary btn-sm" onclick="back();">back</button>
+            	<button id="logout"  class="btn btn-primary btn-sm" onclick="log_out();">logout</button>
+            	</p>
+        </div>
+
+        <div id="side_div">
+                <a href="user_home.html" class="info">Personal Information</a>
+                <a href="user_entry.html" class="info">Results</a>
+                <a href="user_entry.html" class="info">Medication</a>
+                <a href="user_entry.html" class="info">Allergy</a>
+                <a href="user_recordings.html" class="info">Recordings</a>
+        </div>
+        
+         <div id="div3">
+            
+          		<table id="t1">
+
+          		    <tr>
+          		    	<td>Type</td>
+          		    	<td>
+                        <select onchange="fetch_data();" id="filter">
+
+                            <option>choose..</option>
+                            <option value="result">Results</option>
+                            <option value="medication">Medication</option>
+                            <option value="measurements">Measurements</option>
+                            <option value="allergy">Allergy</option>
+                           
+                        </select>  
+                    </td>
+          		    </tr>
+          			
+          		</table>
+          		
+          	</div>
+
+            
+
+            <div id="div1"></div>
+</body>
+</html>

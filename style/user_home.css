@@ -1,0 +1,301 @@
+body {
+		margin:auto;
+		background-color: #edf4f9;
+		padding-bottom: 50px;
+}
+
+#div1 {
+		padding: 0;
+		float: left;
+		margin: auto;
+		width: 100%;
+	    background-color: #004b8d;
+}
+
+#div1 p{
+		font-size: 40px;
+		margin-left: 30px;
+		color: white;
+		padding: 30px 30px;
+}
+
+#logout,#reset {
+			float: right;
+			background-color:transparent;
+			color: white;
+			border-style: none;
+			margin-right: 15px;
+			font-size: 20px;
+}
+
+#logout:hover {
+	 			background-color: #01b2c1;
+}
+
+#reset:hover {
+	 			background-color: #01b2c1;
+}
+
+
+input:focus {
+				background-color:  #d5d8dc;
+
+}
+
+#div2{
+		background-color: #00a0af;
+	    float: left;
+		width: 100%;
+}
+
+#div2 p{
+		margin: 0;
+		font-size: 30px;
+	    padding: 20px 46px;
+		color: white;
+		border-bottom: 1px solid #F0ECEB;
+}
+
+#div3 {
+		min-height: 500px;
+		float: left;
+		width: 100%;
+}
+
+#div4 {
+		border-right: 1px solid #F0ECEB;
+		margin:0;
+		float: left;
+		min-height: 345px;
+		background-color: #00a0af;
+		padding: 0;
+}
+
+#div4 #p2,#p3,#p4{
+					padding: 20px;
+					border-bottom: 1px solid #F0ECEB;
+					margin:0;
+					text-align: center;
+					color: white;
+					font-size: 20px;
+}
+
+#div4 #p5 {
+	        padding: 20px;
+			margin:0;
+			text-align: center;
+			color: white;
+			font-size: 20px;
+}
+
+#p2:hover {
+			background-color: #004b8d;
+}
+
+#p3:hover {
+			background-color: #004b8d;
+}
+
+#p4:hover {
+			background-color: #004b8d;
+}
+
+#p5:hover {
+			background-color: #004b8d;
+}
+
+#div4 a {
+			text-decoration: none;
+		    border-bottom: 1px solid #F0ECEB;
+		    color: white;
+}
+
+#div5 {
+		margin-left: 20px;
+		width:50%;
+}
+
+#div5 table td{
+				margin-left: 50px;
+				padding:15px;
+}
+
+#upload_photo {
+				float: right;
+				margin-right: 12px;
+}
+
+#file_input {
+				float: left;
+}
+
+#upload {
+			position: absolute;
+  			right: 0px;
+  			/*bottom: 202px;*/
+  			margin-right: 20px;
+  			background-color: transparent;
+  			color:#004b8d;
+  			border-style: none;
+}
+
+#psubmit {
+			background-color: transparent;
+  			color:#004b8d;
+  			border-style: none;
+}
+
+#psubmit:hover {
+				background-color: #01b2c1;
+}
+
+#upload:hover {
+				background-color: #01b2c1;
+}
+
+#div6 {
+		 margin-top: 32px;
+		 background-color: #004b8d;
+		 padding: 16px;
+		 margin-left: 226px;
+}
+
+#div6 p{
+		font-size: 20px;
+		color: white;
+		margin-left: 20px;
+}
+
+#div7 {
+		width: 80%;
+}
+
+#div7 #save{
+			float: right;
+			margin-right: -3px;
+			background-color: #004b8d;
+			color: white;
+			border-style: none;
+			padding: 10px;
+			border-radius: 5px;
+}
+
+#div7 table {
+				margin-left: 77px;
+				margin-top: 30px;
+				padding: 20px;
+}
+#div7 table td,th {
+					padding: 20px;
+}
+
+#pics{
+	  width: 178px;
+	  height: 183px;
+	  position: absolute;
+	  top: 244px;
+	  border-radius: 50%;
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
+   
+
+   #div1 {
+   			width: 100%;
+   }
+
+   #div1 p{
+			font-size: 30px;
+			margin-left: 0px;
+	
+	}
+
+	#logout,#reset {
+				font-size: 20px;
+				margin-right: -28px;
+	}
+
+  	#div3 {
+			float: left;
+			width: 100%;
+			min-height: 100px;
+ 	}
+
+	#div4 {
+			width:100%;
+			margin-top: 281px;
+	}
+
+	#div4 p {
+				font-size: 20px;
+	}
+
+	table td {
+		font-size: 15px;
+		
+	}
+
+	#upload_photo {
+					float: none;
+					margin-top: 10px;
+	}
+
+	#pics {
+			text-align: center;
+			margin-left: 116px;
+	}
+
+	#upload {
+				margin-top: -22px;
+				margin-left: 236px;
+	}
+
+	#file_input {
+				 margin-top: 15px;
+				 float: none;
+				 margin-left: 20px;
+	}
+
+	#date,#height,#weight {
+							width:212px;
+	}
+
+
+	#div6 {
+			margin-left: 0px;
+			float:left;
+			width: 100%;
+	}
+
+	#div6 p{
+			font-size: 30px;
+			color: white;
+	}
+
+	#div7 #save{
+				font-size: 20px;
+				/*float: none;*/
+				margin-left: 100px;
+
+	}
+
+
+
+	#div5,#div7{
+				margin-left:0;
+				width: 100%;
+	}
+
+	#div7 table {
+				margin-left: 0px;
+				margin-top: 20px;
+	}
+
+	#div7 table input{
+						width: 95%;
+	}
+
+	#div7 #date {
+			width: 200px;
+	}
+}

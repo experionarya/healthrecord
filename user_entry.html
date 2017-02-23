@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    	
+      <title>Medical Information</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      
+      <link rel="stylesheet" type="text/css" href="style/bootstrap-datepicker.css">
+      <link rel="stylesheet" href="style/font-awesome/css/font-awesome.min.css">
+    	<link rel="stylesheet" type="text/css" href="style/user_entry.css">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script type="text/javascript" src="script/bootstrap-datepicker.min.js"></script>
+    	<script type="text/javascript" src="script/user_entry.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body onunload="function set(){}">
+
+        <div id="head">
+
+        	<p>Health Record
+          <button id="logout" class="btn btn-primary btn-sm" onclick="log_out();">logout</button>
+          <button id="back" class="btn btn-primary btn-sm" onclick="back();">back</button></p>
+
+          </p>
+
+        </div>
+
+        <div id="div1">
+        	<p>Medical Information</p>
+        </div>
+
+        <div id="div2">
+
+              <div id="div3">
+
+            		<p id="p2">Results</p>
+                <p id="p3">Medication</p>
+                <p id="p8">Allergy</p>
+            		<a href="user_recordings.html"><p id="p4">Recordings</p></a>
+            	</div>
+              
+             <div id="div4">
+
+                  <table id="t1">
+
+              			<tr>
+              				<td>Date</td>
+              	
+              				<td colspan="2"><input type="text" class="datepicker" id="date1"/> <i class="fa fa-calendar" aria-hidden="true"></i></td>
+              			</tr>
+
+              			<tr>
+              				<td>Type</td>
+              				
+              				<td>
+                          <select id="type" onchange="fetch_unit();"></select>    
+                      </td>
+                      <td>
+                        <select id="unit"></select>
+                      </td>
+              			</tr>
+
+              			<tr>
+              				<td>Reading 1</td>
+              				
+              				<td colspan="2"><input type="text" id="read1"/></td>
+              			</tr>
+
+                    <tr>
+                      <td>Reading 2</td>
+                      
+                      <td colspan="2"><input type="text" id="read2"/></td>
+                    </tr>
+
+              		</table>
+
+              		<button id="submit" onclick="validate_results();">submit</button>
+              	</div>
+                
+
+
+               <div id="div5">
+
+                <table id="t2">
+
+                  <tr>
+                    <td>Date</td>
+                    <td><input type="text" class="datepicker" id="date2"/> <i class="fa fa-calendar" aria-hidden="true"></i></td>
+                  </tr>
+
+                  <tr>
+                    <td>Reason</td>
+                    <td><input type="text" id="reason"></td>
+                  </tr>
+                  
+                  <tr>
+                    <td>Medication</td>
+                    <td><input type="text" id="medication"></td>
+                  </tr>
+
+                  <tr>
+                    <td>Dosage</td>
+                    <td><input type="text" id="dosage"></td>
+                  </tr>
+
+                </table>
+
+                <button id="submit1" onclick="validate_medication();">submit</button>
+              </div>
+
+              <div id="div6">
+
+                <table id="t3">
+                  
+                 <tr>
+                    <td>Allergen</td>
+                    <td><input type="text" id="allergen"></td>
+                  </tr>
+                  
+                  <tr>
+                    <td>Allergy</td>
+                    <td><input type="text" id="allergy"></td>
+                  </tr>
+
+                </table>
+
+                <button id="submit2" onclick="validate_allergy();">submit</button>
+              </div>
+
+
+        </div>
+
+          <script>
+
+          $('.datepicker').datepicker({
+            autoclose:true,
+            format: 'dd-mm-yyyy'
+          });
+         
+        </script>
+
+</body>
+</html>
